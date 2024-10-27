@@ -1,71 +1,168 @@
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background-color: #1a1a1d;
-    color: #e5e5e5;
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    line-height: 1.6;
 }
 
-header {
-    padding: 50px;
-    text-align: center;
-    background-color: #282828;
-    color: #f5f5f5;
-}
-
-header h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.1em;
-}
-
-main {
+/* Header styles */
+.hero {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));
+    text-align: center;
     padding: 20px;
 }
 
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #000; /* Black text */
+    background-color: #fff; /* White background */
+    border-radius: 25px; /* Fluid border radius */
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Main section styles */
+main {
+    padding: 20px;
+}
+
+/* Introduction section */
+#introduction {
+    margin: 40px 0;
+}
+
+#introduction h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Article section */
 #articles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-    max-width: 1100px;
-    width: 100%;
+    margin: 40px 0;
 }
 
+#articles h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Article item styles */
 .article-item {
-    background-color: #333;
+    background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
+    border-radius: 15px; /* Fluid border radius */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s;
+    margin: 15px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .article-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2); /* Shadow effect */
 }
 
-.article-item h2 a {
-    color: #6aa3ef;
-    text-decoration: none;
+/* Article heading styles */
+.article-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-.article-item p {
-    margin-top: 10px;
-    color: #b5b5b5;
+/* Link styles */
+.article-item a {
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Transition for hover effect */
+    position: relative; /* For the pseudo-element */
 }
 
+.article-item a:hover {
+    color: #f0f0f0; /* Light gray on hover */
+}
+
+/* Underline effect on hover */
+.article-item a::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff; /* White underline */
+    transform: scaleX(0); /* Start at 0 scale */
+    transition: transform 0.3s ease; /* Smooth transition */
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Positioning the underline */
+}
+
+.article-item a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/* Footer styles */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #282828;
-    color: #b5b5b5;
-    margin-top: 30px;
+    border-top: 1px solid #fff;
+    margin-top: 40px;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+    }
+
+    #introduction h2, #articles h2 {
+        font-size: 1.5rem;
+    }
+
+    .article-item h3 {
+        font-size: 1.2rem;
+    }
 }

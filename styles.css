@@ -136,6 +136,15 @@ footer {
     margin-top: 40px;
 }
 
+#next_page_link{
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 7px;
+    background-color: white;
+    border : 1px solid black;
+}
+
 /* Keyframes for animations */
 @keyframes fadeIn {
     from {
